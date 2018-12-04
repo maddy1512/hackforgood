@@ -3,6 +3,7 @@ package com.hsbc.hackforgood.service;
 import com.hsbc.hackforgood.domain.Results;
 import com.hsbc.hackforgood.repository.ResultsRepository;
 import com.hsbc.hackforgood.repository.search.ResultsSearchRepository;
+import com.hsbc.hackforgood.service.dto.ResultChart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,6 +42,12 @@ public class ResultsService {
     public Results save(Results results) {
         log.debug("Request to save Results : {}", results);
         Results result = resultsRepository.save(results);
+        resultsSearchRepository.save(result);
+        return result;
+    }
+    public List<Results> saveAll(List<Results> results) {
+        log.debug("Request to save All Results : {}", results);
+        List<Results> result = resultsRepository.save(results);
         resultsSearchRepository.save(result);
         return result;
     }
@@ -94,5 +101,13 @@ public class ResultsService {
         return StreamSupport
             .stream(resultsSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<ResultChart> getChartData() {
+        log.debug("Request to get all ChartData");
+        List<ResultChart> result = resultsRepository.getChartData();
+
+        return result;
     }
 }

@@ -3,6 +3,7 @@ package com.hsbc.hackforgood.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.hsbc.hackforgood.domain.Results;
 import com.hsbc.hackforgood.service.ResultsService;
+import com.hsbc.hackforgood.service.dto.ResultChart;
 import com.hsbc.hackforgood.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -57,17 +58,15 @@ public class ResultsResource {
             .body(result);
     }
 
-    @PostMapping("/results")
+    @PostMapping("/resultsall")
     @Timed
-    public ResponseEntity<Results> createMultipleResults(@Valid @RequestBody List<Results> results) throws URISyntaxException {
+    public ResponseEntity<List<Results>> createMultipleResults(@Valid @RequestBody List<Results> results) throws URISyntaxException {
         log.debug("REST request to save Results : {}", results);
-        if (results.getId() != null) {
+        if (results.size()  == 0) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new results cannot already have an ID")).body(null);
         }
-        Results result = resultsService.save(results);
-        return ResponseEntity.created(new URI("/api/results/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
-            .body(result);
+        List<Results> result = resultsService.saveAll(results);
+        return ResponseEntity.ok().body(result);
     }
 
     /**
@@ -102,6 +101,13 @@ public class ResultsResource {
     public List<Results> getAllResults() {
         log.debug("REST request to get all Results");
         return resultsService.findAll();
+    }
+
+    @GetMapping("/chart")
+    @Timed
+    public List<ResultChart> getChartData() {
+        log.debug("REST request to get all chartData");
+        return resultsService.getChartData();
     }
 
     /**

@@ -36,6 +36,16 @@
                     copy.survey_timestamp = DateUtils.convertLocalDateToServer(copy.survey_timestamp);
                     return angular.toJson(copy);
                 }
+            },
+            'saveAll':{
+                url:'api/resultsall/',
+                method:'POST',
+                isArray:true
+            },
+            'getChartData':{
+                url:'api/chart/',
+                method:'GET',
+                isArray:true
             }
         });
     }

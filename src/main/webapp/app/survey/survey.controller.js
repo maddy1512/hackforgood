@@ -10,10 +10,19 @@
     function SurveyController ($scope, Principal, LoginService, $state, Questions, Results) {
         var vm = this;
         var mapping = {};
+        var mappingQuestionName = {};
         vm.questions = [];
         vm.loadAll = loadAll;
 
         loadAll();
+        getAccount();
+
+        function getAccount() {
+            Principal.identity().then(function(account) {
+                vm.account = account;
+                // vm.isAuthenticated = Principal.isAuthenticated;
+            });
+        }
 
         function loadAll() {
             Questions.query(function(result) {
@@ -25,7 +34,7 @@
 
         function convertTojson() {
             var json = {
-                title: "Feedback",
+                title: "Feedback ",
                 showProgressBar: "top",
                 pages: [{questions:[]}]
             };
@@ -35,6 +44,7 @@
 
                     var element = {"id":data["id"],"type": data["type"], "name": data["name"], "title": data["title"]};
                     mapping[data["name"]] = data["id"];
+                    mappingQuestionName[data["name"]] = data["title"];
                     if (data.type == "radiogroup") {
                         var choices = [];
                         if(data.choice_x)
@@ -46,19 +56,36 @@
 
                         element["choices"] = choices;
                     }
+                    if (data.name == "cust_name") {
+                        element.readOnly = true;
+                    }
                     json.pages[0].questions.push(element);
                 }
             });
             console.log(json);
 
             window.survey = new Survey.Model(json);
+            window.survey.setValue("cust_name", vm.account.firstName);
+
             window.survey.onComplete.add(function(result) {
                 console.log("result",result.data);
+                var serverData = [];
+                var surveyNum = Math.floor(100000 + Math.random() * 900000);
                 angular.forEach(result.data,function (value,key) {
-                   console.log(key,value,mapping[key]);
+                   var resultObj = {
+                       user: vm.account.id,
+                       survey_id: surveyNum,
+                       question_id: mapping[key],
+                       question_name: mappingQuestionName[key],
+                       question_result: value,
+                       survey_timestamp: new Date(),
+                       id: null
+                   };
+                    serverData.push(resultObj);
+
+                    console.log(key,value,mapping[key]);
                 });
-                document.querySelector("#surveyResult").innerHTML =
-                    "result: " + JSON.stringify(result.data);
+                Results.saveAll(serverData);
             });
 
             $("#surveyElement").Survey({
