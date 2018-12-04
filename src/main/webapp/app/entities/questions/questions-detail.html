@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="hackforgoodApp.questions.detail.title">Questions</span> {{vm.questions.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="hackforgoodApp.questions.type">Type</span></dt>
+        <dd>
+            <span>{{vm.questions.type}}</span>
+        </dd>
+        <dt><span data-translate="hackforgoodApp.questions.name">Name</span></dt>
+        <dd>
+            <span>{{vm.questions.name}}</span>
+        </dd>
+        <dt><span data-translate="hackforgoodApp.questions.title">Title</span></dt>
+        <dd>
+            <span>{{vm.questions.title}}</span>
+        </dd>
+        <dt><span data-translate="hackforgoodApp.questions.choice_x">Choice X</span></dt>
+        <dd>
+            <span>{{vm.questions.choice_x}}</span>
+        </dd>
+        <dt><span data-translate="hackforgoodApp.questions.choice_y">Choice Y</span></dt>
+        <dd>
+            <span>{{vm.questions.choice_y}}</span>
+        </dd>
+        <dt><span data-translate="hackforgoodApp.questions.choice_z">Choice Z</span></dt>
+        <dd>
+            <span>{{vm.questions.choice_z}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="questions-detail.edit({id:vm.questions.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

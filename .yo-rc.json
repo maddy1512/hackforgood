@@ -1,0 +1,35 @@
+{
+  "generator-jhipster": {
+    "jhipsterVersion": "4.0.0",
+    "baseName": "hackforgood",
+    "packageName": "com.hsbc.hackforgood",
+    "packageFolder": "com/hsbc/hackforgood",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "buildTool": "maven",
+    "enableSocialSignIn": true,
+    "rememberMeKey": "0b7ab5fdc1fd8394b0f5489a9607f40077beb460",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "applicationType": "monolith",
+    "clientFramework": "angular1",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "hi",
+      "mr"
+    ]
+  }
+}

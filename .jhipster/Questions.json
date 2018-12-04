@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "choice_x",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "choice_y",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "choice_z",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20181203105224",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "questions",
+    "pagination": "no"
+}

@@ -1,0 +1,114 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myResultsLabel" data-translate="hackforgoodApp.results.home.createOrEditLabel">Create or edit a Results</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.results.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.results.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hackforgoodApp.results.user" for="field_user">User</label>
+            <input type="number" class="form-control" name="user" id="field_user"
+                    ng-model="vm.results.user"
+                    required/>
+            <div ng-show="editForm.user.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.user.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.user.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hackforgoodApp.results.survey_id" for="field_survey_id">Survey Id</label>
+            <input type="number" class="form-control" name="survey_id" id="field_survey_id"
+                    ng-model="vm.results.survey_id"
+                    required/>
+            <div ng-show="editForm.survey_id.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.survey_id.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.survey_id.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hackforgoodApp.results.question_id" for="field_question_id">Question Id</label>
+            <input type="number" class="form-control" name="question_id" id="field_question_id"
+                    ng-model="vm.results.question_id"
+                    required/>
+            <div ng-show="editForm.question_id.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.question_id.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.question_id.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hackforgoodApp.results.question_name" for="field_question_name">Question Name</label>
+            <input type="text" class="form-control" name="question_name" id="field_question_name"
+                    ng-model="vm.results.question_name"
+                    required/>
+            <div ng-show="editForm.question_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.question_name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hackforgoodApp.results.question_result" for="field_question_result">Question Result</label>
+            <input type="text" class="form-control" name="question_result" id="field_question_result"
+                    ng-model="vm.results.question_result"
+                    required/>
+            <div ng-show="editForm.question_result.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.question_result.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hackforgoodApp.results.survey_timestamp" for="field_survey_timestamp">Survey Timestamp</label>
+                <div class="input-group">
+                    <input id="field_survey_timestamp" type="text" class="form-control" name="survey_timestamp" uib-datepicker-popup="{{dateformat}}" ng-model="vm.results.survey_timestamp" is-open="vm.datePickerOpenStatus.survey_timestamp"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('survey_timestamp')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.survey_timestamp.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.survey_timestamp.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

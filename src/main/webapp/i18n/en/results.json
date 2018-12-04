@@ -1,0 +1,27 @@
+{
+    "hackforgoodApp": {
+        "results" : {
+            "home": {
+                "title": "Results",
+                "createLabel": "Create a new Results",
+                "createOrEditLabel": "Create or edit a Results",
+                "search": "Search for Results"
+            },
+            "created": "A new Results is created with identifier {{ param }}",
+            "updated": "A Results is updated with identifier {{ param }}",
+            "deleted": "A Results is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Results {{ id }}?"
+            },
+            "detail": {
+                "title": "Results"
+            },
+            "user": "User",
+            "survey_id": "Survey Id",
+            "question_id": "Question Id",
+            "question_name": "Question Name",
+            "question_result": "Question Result",
+            "survey_timestamp": "Survey Timestamp"
+        }
+    }
+}

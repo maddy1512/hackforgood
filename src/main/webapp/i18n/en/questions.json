@@ -1,0 +1,27 @@
+{
+    "hackforgoodApp": {
+        "questions" : {
+            "home": {
+                "title": "Questions",
+                "createLabel": "Create a new Questions",
+                "createOrEditLabel": "Create or edit a Questions",
+                "search": "Search for Questions"
+            },
+            "created": "A new Questions is created with identifier {{ param }}",
+            "updated": "A Questions is updated with identifier {{ param }}",
+            "deleted": "A Questions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Questions {{ id }}?"
+            },
+            "detail": {
+                "title": "Questions"
+            },
+            "type": "Type",
+            "name": "Name",
+            "title": "Title",
+            "choice_x": "Choice X",
+            "choice_y": "Choice Y",
+            "choice_z": "Choice Z"
+        }
+    }
+}

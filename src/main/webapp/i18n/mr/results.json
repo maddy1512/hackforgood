@@ -1,0 +1,27 @@
+{
+    "hackforgoodApp": {
+        "results" : {
+            "home": {
+                "title": "Results",
+                "createLabel": "नवीन Results तयार करा",
+                "createOrEditLabel": "Results तयार किंवा संपादित करा",
+                "search": "Results शोधा"
+            },
+            "created": "Results [identifier: {{ param }}] तयार आहे",
+            "updated": "Results [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Results [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Results [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Results"
+            },
+            "user": "User",
+            "survey_id": "Survey Id",
+            "question_id": "Question Id",
+            "question_name": "Question Name",
+            "question_result": "Question Result",
+            "survey_timestamp": "Survey Timestamp"
+        }
+    }
+}

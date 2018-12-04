@@ -1,0 +1,27 @@
+{
+    "hackforgoodApp": {
+        "questions" : {
+            "home": {
+                "title": "Questions",
+                "createLabel": "नवीन Questions तयार करा",
+                "createOrEditLabel": "Questions तयार किंवा संपादित करा",
+                "search": "Questions शोधा"
+            },
+            "created": "Questions [identifier: {{ param }}] तयार आहे",
+            "updated": "Questions [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Questions [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Questions [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Questions"
+            },
+            "type": "Type",
+            "name": "Name",
+            "title": "Title",
+            "choice_x": "Choice X",
+            "choice_y": "Choice Y",
+            "choice_z": "Choice Z"
+        }
+    }
+}
