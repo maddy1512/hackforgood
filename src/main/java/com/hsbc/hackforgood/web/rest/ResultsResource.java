@@ -103,11 +103,12 @@ public class ResultsResource {
         return resultsService.findAll();
     }
 
-    @GetMapping("/chart")
+    @GetMapping("/chart/{filter}")
     @Timed
-    public List<ResultChart> getChartData() {
+    public List<ResultChart> getChartData(@PathVariable String filter) {
         log.debug("REST request to get all chartData");
-        return resultsService.getChartData();
+        filter = filter.equals("All")?"1":filter;
+        return resultsService.getChartData(filter);
     }
 
     /**

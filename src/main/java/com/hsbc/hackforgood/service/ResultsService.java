@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -104,10 +105,19 @@ public class ResultsService {
     }
 
     @Transactional(readOnly = true)
-    public List<ResultChart> getChartData() {
+    public List<ResultChart> getChartData(String filter) {
         log.debug("Request to get all ChartData");
-        List<ResultChart> result = resultsRepository.getChartData();
-
+        List<Long> surveyIds = resultsRepository.getSurveyIds(filter);
+        log.debug("Request to get all ChartData",surveyIds);
+        if(surveyIds.size() == 0) {
+            surveyIds = resultsRepository.getAllSurveyIds();
+        }
+        List<ResultChart> result = new ArrayList<>();
+        try {
+            result = resultsRepository.getChartData(surveyIds);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         return result;
     }
 }

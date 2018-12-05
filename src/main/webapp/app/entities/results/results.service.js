@@ -43,9 +43,12 @@
                 isArray:true
             },
             'getChartData':{
-                url:'api/chart/',
+                url:'api/chart/:filter',
                 method:'GET',
-                isArray:true
+                isArray:true,
+                params: {
+                    filter: '@filter'
+                }
             }
         });
     }

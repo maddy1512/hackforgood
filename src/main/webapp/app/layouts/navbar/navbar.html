@@ -9,7 +9,7 @@
             </button>
             <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
                 <img class="logo-img" src="content/images/logo-jhipster.png" alt="logo"/>
-                <span data-translate="global.title">Hackforgood</span> <span class="navbar-version">v{{VERSION}}</span>
+                <span data-translate="global.title">Hackforgood</span>
             </a>
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
@@ -44,6 +44,32 @@
                                     <span data-translate="global.menu.entities.results">Results</span>
                                 </a>
                             </li>
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+                <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="menu">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="hidden-sm">
+                                FeedBack
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="survey" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span>FeedBack</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="dashboard" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>

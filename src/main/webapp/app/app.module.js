@@ -30,7 +30,7 @@
     }
     function config() {
         (function (ChartJsProvider) {
-            ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+            ChartJsProvider.setOptions({ colors : [ '#803690', '#008000', '#FDB45C'] });
         });
     }
 })();
